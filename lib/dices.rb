@@ -14,9 +14,23 @@ end
 
 #puts Dices.version
 game = Dices::Game.new
-player = Player.new('Andrey')
+puts "Введите ваше имя и нажмите Enter"
+player = Player.new(gets.chomp)
 
 game.login! player
-#game.run 12, 150
+puts "Хотите испытать удачу и сыграть в кости? Yy / Nn"
+answer = gets.chomp.downcase
+while answer == "y" do
+  player.show_credit
+  puts "Введите число от 1 до 12:"
+  bet = gets.to_i
+  puts "Введите вашу ставку"
+  money = gets.to_i
+  game.run bet, money
+  player.show_credit
+  puts "Хотите еще испытать удачу и сыграть в кости? Yy / Nn"
+  answer = gets.chomp.downcase
 
+end
 game.logout! player
+player.show_credit
