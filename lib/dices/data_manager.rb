@@ -6,10 +6,11 @@ module Dices
 
     def add_player! player
       @players.push(player)
-      log "Added player #{name}"
+      log "К столу подошел игрок #{player.name}"
+      player
     end
 
-    def destroy_player current_player
+    def destroy_player! current_player
       @players.delete_if { |player| player.name == current_player.name }
     end
   end

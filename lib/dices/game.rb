@@ -8,12 +8,15 @@ module Dices
     include DataManager
     include Auth
     def initialize
+      @players = []
       @dice1 = Dice.new(6)
       @dice2 = Dice.new(6)
     end
 
     def run bet, stake = 100
-      puts "Вы поставили #{stake} рублей на #{bet}"
+      log "Вы поставили #{stake} рублей на #{bet}"
+      @bet = bet
+      @stake = stake
     end
   end
 end

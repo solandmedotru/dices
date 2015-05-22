@@ -1,3 +1,4 @@
+require_relative 'core_ext/object'
 require_relative 'dices/game'
 require_relative 'player'
 module Dices
@@ -16,6 +17,6 @@ game = Dices::Game.new
 player = Player.new('Andrey')
 
 game.login! player
-game.run 12, 150
+#game.run 12, 150
 
 game.logout! player
